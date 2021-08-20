@@ -1,84 +1,39 @@
+"use strict";
+
 //CODIGO CAVIAR 
-let againBTN = document.querySelector('.again');
-const planetsName = document.querySelectorAll('.p-tierra');
+var againBTN = document.querySelector('.again');
+var planetsName = document.querySelectorAll('.p-tierra');
+var cuerposCelestes = [document.querySelector('.open-sol'), document.querySelector('.open-tierra'), document.querySelector('.open-venus'), document.querySelector('.open-luna'), document.querySelector('.open-jupiter'), document.querySelector('.open-saturno')]; //AUDIOS
 
+var buttonsAudios = [document.querySelector('.button-audio-sol'), document.querySelector('.button-audio-mercurio'), document.querySelector('.button-audio-venus'), document.querySelector('.button-audio-tierra'), document.querySelector('.button-audio-luna'), document.querySelector('.button-audio-marte'), document.querySelector('.button-audio-jupiter'), document.querySelector('.button-audio-saturno')]; //Functions-------------------------------------------------------------------------------
 
+var clickEvent = function clickEvent(e) {
+  //Abro el popup
+  var popUp = e.target.lastChild.previousElementSibling;
+  popUp.style.visibility = 'visible';
+};
 
-
-let cuerposCelestes = [
-    document.querySelector('.open-sol'),
-    document.querySelector('.open-tierra'),
-    document.querySelector('.open-venus'),
-    document.querySelector('.open-luna'),
-    document.querySelector('.open-jupiter'),
-    document.querySelector('.open-saturno')
-];
-
-//AUDIOS
-let buttonsAudios = [
-    document.querySelector('.button-audio-sol'),
-    document.querySelector('.button-audio-mercurio'),
-    document.querySelector('.button-audio-venus'),
-    document.querySelector('.button-audio-tierra'),
-    document.querySelector('.button-audio-luna'),
-    document.querySelector('.button-audio-marte'),
-    document.querySelector('.button-audio-jupiter'),
-    document.querySelector('.button-audio-saturno')
-
-];
-
-//Functions-------------------------------------------------------------------------------
-let clickEvent = (e) => {
-    //Abro el popup
-    let popUp = e.target.lastChild.previousElementSibling;
-    popUp.style.visibility = 'visible';
-}
-
-let clickPlay=(e)=>{
-let play=e.target.lastChild.previousElementSibling;
-console.log('plaaayyyy')
-console.log(play)
-}
-
-
-//AddEventListener---------------------------------------------------------------------------
+var clickPlay = function clickPlay(e) {
+  var play = e.target.lastChild.previousElementSibling;
+  console.log('plaaayyyy');
+  console.log(play);
+}; //AddEventListener---------------------------------------------------------------------------
 //cuerpos celestes
-cuerposCelestes.forEach(cuerpo => {
-    cuerpo.addEventListener('click', clickEvent);
+
+
+cuerposCelestes.forEach(function (cuerpo) {
+  cuerpo.addEventListener('click', clickEvent);
+}); //play buttons
+
+buttonsAudios.forEach(function (buttonAudio) {
+  buttonAudio.addEventListener('playing', clickPlay);
+}); //Volver a empezar
+
+againBTN.addEventListener('click', function () {
+  planetsName.forEach(function (planets) {
+    planets.style.visibility = 'hidden';
+  });
 });
-
-
-//play buttons
-buttonsAudios.forEach(buttonAudio=>{
-    buttonAudio.addEventListener('playing',clickPlay)
-})
-
-
-
-
-
-
-
-//Volver a empezar
-
-againBTN.addEventListener('click', () => {
-    planetsName.forEach(planets => {
-        planets.style.visibility = 'hidden';
-    })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 
@@ -102,9 +57,6 @@ let audiosFunction = () => {
 
  */
 
-
-
-
 /*
 
 //AUDIOS
@@ -124,11 +76,6 @@ let audios = [
         console.log(audios[i])
        // audios[i].play()
     }*/
-
-
-
-
-
 
 /*CODIGO 1°
 const openSol = document.querySelector('.open-sol')
@@ -210,8 +157,6 @@ openSaturno.addEventListener('click', e =>{
 
 */
 
-
-
 /*MODALES
 const modalSol = document.querySelector('.modal-sol')
 const modalJupiter = document.querySelector('.modal-jupiter')
@@ -244,8 +189,6 @@ let audioMarte=document.querySelector('.audio-marte')
 let audioJupiter=document.querySelector('.audio-jupiter')
 let audioSaturno=document.querySelector('.audio-saturno')
 */
-
-
 
 /*CLOSE
 const btnClose = document.querySelectorAll('.close')
@@ -298,7 +241,6 @@ btnVenus.addEventListener('click', ()=>{
 
 */
 
-
 /*
 
 openBTN.forEach(btn => {
@@ -329,16 +271,6 @@ openBTN.forEach(btn=>{
 });
 
 */
-
-
-
-
-
-
-
-
-
-
 
 /*
 
